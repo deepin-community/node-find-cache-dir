@@ -1,0 +1,31 @@
+Source: node-find-cache-dir
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Pirate Praveen <praveen@debian.org>
+Section: javascript
+Testsuite: autopkgtest-pkg-nodejs
+Priority: optional
+Build-Depends:
+ debhelper-compat (= 12)
+ , node-commondir <!nocheck>
+ , node-del (>= 4.0.0) <!nocheck>
+ , node-make-dir <!nocheck>
+ , node-pkg-dir (>= 4.1.0) <!nocheck>
+ , node-tape <!nocheck>
+ , pkg-js-tools (>= 0.9.20~)
+Standards-Version: 4.5.1
+Vcs-Browser: https://salsa.debian.org/js-team/node-find-cache-dir
+Vcs-Git: https://salsa.debian.org/js-team/node-find-cache-dir.git
+Homepage: https://github.com/jamestalmage/find-cache-dir#readme
+Rules-Requires-Root: no
+
+Package: node-find-cache-dir
+Architecture: all
+Depends:
+ ${misc:Depends}
+ , nodejs
+ , node-commondir
+ , node-del (>= 4.0.0)
+ , node-pkg-dir (>= 4.1.0)
+ , node-make-dir
+Description: finds the common standard cache directory
+ Node.js is an event-based server-side JavaScript engine.

@@ -1,0 +1,77 @@
+node-find-cache-dir (3.3.1-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Submit.
+  * Update standards version to 4.5.0, no changes needed.
+
+  [ Pirate Praveen ]
+  * New upstream version 3.3.1
+  * Bump Standards-Version to 4.5.1 (no changes needed)
+  * Refresh patches
+
+ -- Pirate Praveen <praveen@debian.org>  Wed, 23 Dec 2020 00:14:40 +0530
+
+node-find-cache-dir (3.2.0-3) unstable; urgency=medium
+
+  * Team upload
+  * Reupload to unstable
+
+ -- Xavier Guimard <yadd@debian.org>  Fri, 10 Jan 2020 06:18:55 +0100
+
+node-find-cache-dir (3.2.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable after successful tests
+
+ -- Xavier Guimard <yadd@debian.org>  Sun, 29 Dec 2019 05:31:22 +0100
+
+node-find-cache-dir (3.2.0-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream version 3.2.0
+  * Dependencies:
+    + require node-del ≥ 4.0.0
+    + require node-pkg-dir ≥ 4.1.0
+  * Replace ava by tape in test
+  * Enabel upstream test using pkg-js-tools
+
+ -- Xavier Guimard <yadd@debian.org>  Sat, 28 Dec 2019 14:08:29 +0100
+
+node-find-cache-dir (3.1.0-1) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable after successful test
+  * Bump debhelper compatibility level to 12
+  * Declare compliance with policy 4.4.1
+  * Add "Rules-Requires-Root: no"
+  * Add debian/gbp.conf
+  * Add upstream/metadata
+  * New upstream version 3.1.0
+  * Update copyright
+  * Fix install
+  * Fix autopkgtest
+  * Drop unneeded version constraints from (build) dependencies
+
+ -- Xavier Guimard <yadd@debian.org>  Tue, 19 Nov 2019 20:44:40 +0100
+
+node-find-cache-dir (3.0.0-1) experimental; urgency=medium
+
+  * New upstream version 3.0.0
+  * Bump Standards-Version to 4.4.0 (no changes needed)
+  * Bump debhelper compatibility level to 11
+  * Use salsa.debian.org in Vcs-* fields
+  * Switch to pkg-js-tools auto install
+
+ -- Pirate Praveen <praveen@debian.org>  Thu, 08 Aug 2019 09:41:28 +0000
+
+node-find-cache-dir (1.0.0-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Pirate Praveen <praveen@debian.org>  Thu, 18 Jan 2018 23:16:15 +0530
+
+node-find-cache-dir (0.1.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #845093)
+
+ -- Pirate Praveen <praveen@debian.org>  Sun, 20 Nov 2016 16:43:43 +0530

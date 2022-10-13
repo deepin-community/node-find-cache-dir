@@ -1,0 +1,83 @@
+Description: replace ava by tape in tests
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2019-12-28
+
+--- a/test.js
++++ b/test.js
+@@ -1,24 +1,26 @@
+-import fs from 'fs';
+-import path from 'path';
+-import {serial as test} from 'ava';
+-import del from 'del';
+-import {directory as tempDirectory} from 'tempy';
+-import findCacheDir from '.';
++const fs = require('fs');
++const path = require('path');
++const test = require('tape');
++const del = require('del');
++const findCacheDir = require('.');
+ 
+ test('finds from a list of files', t => {
+ 	process.chdir(path.join(__dirname, '..'));
+ 	const files = ['foo/bar', 'baz/quz'].map(file => path.join(__dirname, file));
+ 	t.is(findCacheDir({files, name: 'blah'}), path.join(__dirname, 'node_modules', '.cache', 'blah'));
++	t.end();
+ });
+ 
+ test('finds from process.cwd', t => {
+ 	process.chdir(path.join(__dirname));
+ 	t.is(findCacheDir({name: 'foo'}), path.join(__dirname, 'node_modules', '.cache', 'foo'));
++	t.end();
+ });
+ 
+ test('finds from options.cwd', t => {
+ 	process.chdir(path.join(__dirname, '..'));
+ 	t.is(findCacheDir({cwd: __dirname, name: 'bar'}), path.join(__dirname, 'node_modules', '.cache', 'bar'));
++	t.end();
+ });
+ 
+ test('creates dir', t => {
+@@ -26,6 +28,7 @@
+ 	del.sync(directory);
+ 	findCacheDir({create: true, name: 'created', cwd: __dirname});
+ 	t.true(fs.existsSync(directory));
++	t.end();
+ });
+ 
+ test('thunk', t => {
+@@ -34,32 +37,11 @@
+ 	const thunk = findCacheDir({thunk: true, name: 'thunked', cwd: __dirname});
+ 	t.is(thunk('foo'), path.join(directory, 'foo'));
+ 	t.is(thunk('bar'), path.join(directory, 'bar'));
++	t.end();
+ });
+ 
+ test('returns undefined if it can\'t find package.json', t => {
+ 	process.chdir(path.join(__dirname, '..'));
+ 	t.is(findCacheDir({name: 'foo'}), undefined);
+-});
+-
+-test('supports CACHE_DIR environment variable', t => {
+-	const newCacheDirectory = tempDirectory();
+-	const finalDirectory = path.join(newCacheDirectory, 'find-cache-dir');
+-	process.env.CACHE_DIR = newCacheDirectory;
+-
+-	t.is(findCacheDir(), finalDirectory);
+-
+-	findCacheDir({create: true});
+-	t.true(fs.existsSync(finalDirectory));
+-
+-	const thunk = findCacheDir({thunk: true});
+-	t.is(thunk('foo'), path.join(finalDirectory, 'foo'));
+-	t.is(thunk('bar'), path.join(finalDirectory, 'bar'));
+-
+-	delete process.env.CACHE_DIR;
+-});
+-
+-test('ignores `false` for CACHE_DIR environment variable', t => {
+-	process.env.CACHE_DIR = 'false';
+-
+-	t.not(findCacheDir(), path.resolve(__dirname, 'false', 'find-cache-dir'));
++	t.end();
+ });
