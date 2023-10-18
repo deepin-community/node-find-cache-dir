@@ -1,3 +1,19 @@
+node-find-cache-dir (3.3.2+~3.2.1-1) unstable; urgency=medium
+
+  * Team upload
+  * Bump debhelper compatibility level to 13
+  * Modernize debian/watch
+    * Fix GitHub tags regex
+    * Fix filenamemangle
+  * Use dh-sequence-nodejs
+  * Update standards version to 4.6.0, no changes needed.
+  * Drop dependency to nodejs
+  * Embed typescript definitions
+  * New upstream version 3.3.2+~3.2.1
+  * Refresh patch
+
+ -- Yadd <yadd@debian.org>  Fri, 26 Nov 2021 11:08:37 +0100
+
 node-find-cache-dir (3.3.1-1) unstable; urgency=medium
 
   [ Debian Janitor ]
